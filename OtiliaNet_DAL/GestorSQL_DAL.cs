@@ -45,7 +45,7 @@ namespace OtiliaNet.OtiliaNet_DAL
             return _dt;
         }
 
-        internal DataTable DataTable_FromQuery_WithSQLServer(string query)
+        public DataTable DataTable_FromQuery_WithSQLServer(string query)
         {
             DataTable dtOut = new DataTable();
 
@@ -71,9 +71,6 @@ namespace OtiliaNet.OtiliaNet_DAL
             }
             catch (Exception ex) { MessageBox.Show("Error SQL Server: " + ex.Message); }
             return dtOut;
-
-
-
         }
 
         public void TestConnectionWithSqlServer()
