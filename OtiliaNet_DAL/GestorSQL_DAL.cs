@@ -45,6 +45,32 @@ namespace OtiliaNet.OtiliaNet_DAL
             return _dt;
         }
 
+        internal bool AddNewProduct(Product_ENT product)
+        {
+            bool statusInsert = false;
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            String sql = "";
+            String connetionString = @"Data Source=PC-DAVID;Initial Catalog=db_otilia_tests;User ID=sa;Password=ViDa@3467";
+            SqlConnection conn = new SqlConnection(connetionString);
+
+            sql = $"insert into tests_Products(id_product,nameProduct,descProduct) values (" +
+                $"{product.idProduct},{product.nameProduct},{product.descProduct}" +
+                $")";
+
+            command = new SqlCommand(sql, conn);
+
+            adapter.InsertCommand = new SqlCommand(sql, conn);
+
+            if (adapter.InsertCommand.ExecuteNonQuery() > 0)
+            {
+                statusInsert = true;
+                command.Dispose();
+                conn.Close();
+            }
+            return statusInsert;
+        }
+
         public DataTable DataTable_FromQuery_WithSQLServer(string query)
         {
             DataTable dtOut = new DataTable();

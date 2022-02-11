@@ -1,4 +1,5 @@
 ﻿using OtiliaNet.OtiliaNet_DAL;
+using OtiliaNet.OtiliaNet_ENT;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,13 +11,13 @@ namespace OtiliaNet.OtiliaNet_BLL
 {
     public class GestorDatos_BLL
     {
-        public GestorSQL_DAL gestorMySql = new GestorSQL_DAL();
+        public GestorSQL_DAL managerSQL_DAL = new GestorSQL_DAL();
 
         public DataTable DataTable_FromQuery_WithMySQL(string queryIn)
         {
             try
             {
-                return gestorMySql.DataTable_FromQuery_WithMySQL(queryIn);
+                return managerSQL_DAL.DataTable_FromQuery_WithMySQL(queryIn);
             }
             catch (Exception Ex) { throw Ex; }
         }
@@ -24,7 +25,7 @@ namespace OtiliaNet.OtiliaNet_BLL
         {
             try
             {
-                gestorMySql.TestConnectionWithSqlServer();
+                managerSQL_DAL.TestConnectionWithSqlServer();
             }
             catch (Exception Ex) { throw Ex; }
         }
@@ -33,8 +34,13 @@ namespace OtiliaNet.OtiliaNet_BLL
         {
             try
             {
-                return gestorMySql.DataTable_FromQuery_WithSQLServer(query);
+                return managerSQL_DAL.DataTable_FromQuery_WithSQLServer(query);
             }catch(Exception Ex) { throw Ex; }
+        }
+
+        internal bool AddNewProduct(Product_ENT product)
+        {
+            return managerSQL_DAL.AddNewProduct(product);  
         }
     }
 }

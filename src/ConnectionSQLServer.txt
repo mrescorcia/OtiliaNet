@@ -1,1 +1,4 @@
 https://www.guru99.com/c-sharp-access-database.html
+
+-- Insert DataTable into database
+https://stackoverflow.com/questions/9075159/how-to-insert-a-data-table-into-sql-server-database-table

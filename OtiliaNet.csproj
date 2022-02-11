@@ -53,6 +53,7 @@
     <Compile Include="OtiliaNet_BLL\GestorDatos_BLL.cs" />
     <Compile Include="OtiliaNet_DAL\GestorSQL_DAL.cs" />
     <Compile Include="OtiliaNet_ENT\ClienteMySQL_ENT.cs" />
+    <Compile Include="OtiliaNet_ENT\Product_ENT.cs" />
     <Compile Include="OtiliaNet_GUI\Home.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,4 +1,5 @@
 ﻿using OtiliaNet.OtiliaNet_BLL;
+using OtiliaNet.OtiliaNet_ENT;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +30,14 @@ namespace OtiliaNet.OtiliaNet_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            gestorDatos_BLL.AddNewProduct();
+            Product_ENT product = new Product_ENT();
+            product.nameProduct = txtNameProduct.Text;
+            product.descProduct = txtDescProduct.Text;
+
+            if (gestorDatos_BLL.AddNewProduct(product))
+            {
+                MessageBox.Show("Product Added Successfully");
+            }
         }
     }
 }
