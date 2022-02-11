@@ -29,7 +29,7 @@ namespace OtiliaNet.OtiliaNet_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            gestorDatos_BLL.TestConnectionWithSqlServer();
+            gestorDatos_BLL.AddNewProduct();
         }
     }
 }
